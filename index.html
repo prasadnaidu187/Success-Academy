@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Classes</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    body {
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fb, #eef2ff);
+}
+
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: transparent !important;
+  transition: all 0.4s ease;
+  padding: 15px 0;
+}
+
+/* SCROLL EFFECT */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* NAV LINKS */
+.navbar .nav-link {
+  color: #fff !important;
+  margin: 8px 12px; /* better spacing for mobile */
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+  display: inline-block; /* 🔥 FIX: prevents full-width underline */
+}
+
+/* HOVER UNDERLINE */
+.navbar .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #0d6efd;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 100%;
+}
+
+/* MOBILE FIX (VERY IMPORTANT) */
+@media (max-width: 991px) {
+  .navbar-nav {
+    align-items: flex-start; /* 🔥 stops stretching */
+  }
+
+  .navbar .nav-link {
+    display: inline-block;
+    width: auto;
+  }
+}
+
+/* BUTTON */
+.navbar .btn-primary {
+  border-radius: 25px;
+  padding: 6px 18px;
+  background: linear-gradient(45deg, #0d6efd, #4dabf7);
+  border: none;
+}
+
+/* LOGO */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  height: 120px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 120px;
+  }
+
+  .navbar.scrolled .logo {
+    height:120px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}/* ===== HERO SECTION (FIXED CENTER) ===== */
+.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1600&auto=format&fit=crop') no-repeat center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* OVERLAY */
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔥 CENTER FIX */
+  text-align: center;      /* 🔥 TEXT CENTER */
+}
+
+/* HERO TEXT */
+.hero .container {
+  max-width: 700px;
+}
+
+/* HERO TEXT */
+.hero h1 {
+  color: #fff;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.7);
+}
+
+.hero p {
+  color: #ddd;
+}
+
+/* HERO BUTTONS */
+.hero .btn-primary {
+  background: linear-gradient(45deg, #0d6efd, #4dabf7);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+}
+
+.hero .btn-outline-light {
+  border-radius: 30px;
+  padding: 10px 25px;
+}
+
+/* BUTTON HOVER */
+.hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== MOBILE FIX ===== */
+@media(max-width:768px){
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+
+/* ===== TRUST CARDS ===== */
+.shadow-sm {
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.shadow-sm:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+}
+
+/* ===== CARDS ===== */
+.card {
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: white;
+}
+
+.card img {
+  border-radius: 15px;
+  transition: 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  border-radius: 30px;
+  padding: 10px 22px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #0d6efd, #4facfe);
+  border: none;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== REVIEW SECTION ===== */
+#reviewContainer .card {
+  border-left: 5px solid #0d6efd;
+  position: relative;
+}
+
+#reviewContainer .card::before {
+  content: "“";
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: #0d6efd33;
+}
+
+/* ===== TRAINERS ===== */
+.rounded-circle {
+  transition: 0.3s;
+  border: 3px solid transparent;
+}
+
+.rounded-circle:hover {
+  transform: scale(1.1);
+  border-color: #0d6efd;
+}
+
+/* ===== FAQ ===== */
+.accordion-item {
+  border-radius: 10px !important;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.accordion-button {
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #0d6efd;
+  color: white;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 26px;
+  color: white;
+  background: #25D366;
+  padding: 12px 15px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 1000;
+  animation: bounce 2s infinite;
+}
+
+/* ===== RIPPLE EFFECT ===== */
+.ripple {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleAnim 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== FOOTER RESPONSIVENESS ===== */
+/* ===== MODERN PREMIUM FOOTER ===== */
+footer {
+  background: #0b0f1a;
+  color: #cbd5e1;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle gradient glow */
+footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(13,110,253,0.15), transparent 60%);
+  z-index: 0;
+}
+
+/* container fix */
+footer .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== LOGO (BIG + CLEAN) ===== */
+/* ===== PREMIUM REAL-WORLD FOOTER ===== */
+.footer {
+  background: #0b0f19;
+  color: #9ca3af;
+  padding: 70px 0 25px;
+  font-size: 14px;
+}
+
+/* GRID SPACING */
+.footer .row > div {
+  margin-bottom: 30px;
+}
+
+/* ===== LOGO ===== */
+.footer img {
+  height: 100px !important;
+}
+
+
+/* ===== BRAND TEXT ===== */
+.footer p {
+  color: #fff;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+/* ===== TITLES ===== */
+.footer-title {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 18px;
+  font-size: 15px;
+  position: relative;
+}
+
+/* subtle underline */
+.footer-title::after {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background: #2563eb;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+
+/* ===== LINKS ===== */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* ===== CONTACT TEXT ===== */
+.footer i {
+  color: #2563eb;
+  margin-right: 8px;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.footer .social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.footer .social-icons a {
+  width: 38px;
+  height: 38px;
+  background: #111827;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+/* hover glow */
+.footer .social-icons a:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+}
+
+/* ===== CTA BUTTON ===== */
+.footer .btn-success {
+  background: linear-gradient(45deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.footer .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(34,197,94,0.4);
+}
+
+/* ===== DIVIDER ===== */
+.footer hr {
+  border-color: rgba(255,255,255,0.08);
+  margin: 40px 0 20px;
+}
+
+/* ===== COPYRIGHT ===== */
+.footer .text-center {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer p {
+    margin: auto;
+  }
+
+  .footer .social-icons {
+    justify-content: center;
+  }
+
+  .footer-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.footer .text-muted {
+  color: #ffffff !important;
+}
+
+
+/* ===== TRUST SECTION ENHANCED ===== */
+.trust-section {
+  background: linear-gradient(135deg, #f8faff, #eef2ff);
+}
+
+.trust-card {
+  background: white;
+  border-radius: 18px;
+  padding: 25px 15px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle gradient border glow */
+.trust-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(45deg, #0d6efd, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+/* hover effect */
+.trust-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* icon styling */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: 0.4s;
+}
+
+/* icon animation */
+.trust-card:hover .icon-box {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* text styling */
+.trust-card h5 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.trust-card p {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+/* mobile spacing */
+@media (max-width: 768px) {
+  .trust-card {
+    padding: 20px 10px;
+  }
+}
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  background: linear-gradient(135deg, #f8faff, #eef2ff);
+}
+
+/* CARD */
+.contact-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* CONTACT ITEMS */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contact-item i {
+  color: #0d6efd;
+  font-size: 18px;
+}
+
+/* LINKS */
+.contact-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.contact-item a:hover {
+  color: #0d6efd;
+}
+
+/* SOCIAL */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 22px;
+}
+
+.social-icons i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: #0d6efd;
+}
+#contact {
+  scroll-margin-top: 100px;
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+    <a class="navbar-brand" href="#">
+  <img src="images/logo.png" alt="Success Academy Logo" class="logo">
+</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto mobile-menu">
+
+        <li class="nav-item"><a class="nav-link" href="#Home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#trainer">Trainer</a></li>
+        <li class="nav-item"><a class="nav-link" href="#Reviews">Reviews</a></li>
+        <li><a href="#contact" class="btn btn-primary ms-2">Enroll Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="Home" class="hero">
+  <div class="overlay">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Speak English Confidently</h1>
+      <p class="lead">Practical training for students & job seekers</p>
+      <a href="#contact" class="btn btn-primary btn-lg m-2">Enroll Now</a>
+      <a href="#contact" class="btn btn-outline-light btn-lg m-2">Call Now</a>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light trust-section">
+  <div class="container">
+
+    <div class="row text-center g-4">
+
+      <div class="col-6 col-md-3">
+        <div class="trust-card h-100">
+          <div class="icon-box bg-warning-subtle">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <h5>4.8/5</h5>
+          <p>Student Rating</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="trust-card h-100">
+          <div class="icon-box bg-primary-subtle">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h5>1000+</h5>
+          <p>Students Trained</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="trust-card h-100">
+          <div class="icon-box bg-success-subtle">
+            <i class="bi bi-award-fill"></i>
+          </div>
+          <h5>5+ Years</h5>
+          <p>Experience</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="trust-card h-100">
+          <div class="icon-box bg-danger-subtle">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <h5>500+</h5>
+          <p>Placements</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- Problem Solution Advanced -->
+<section class="section bg-light">
+  <div class="container">
+    
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Struggling with Communication?</h2>
+      <p class="text-muted">You're not alone — most students face these challenges</p>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- Problems -->
+      <div class="col-md-6">
+        <h4 class="text-danger mb-4">😟 Common Problems</h4>
+
+        <div class="card p-3 mb-3 shadow-sm border-0">
+          <h6>😰 Fear of Speaking in English</h6>
+          <p class="mb-0 text-muted">You understand English but hesitate to speak in public.</p>
+        </div>
+
+        <div class="card p-3 mb-3 shadow-sm border-0">
+          <h6>❌ Lack of Confidence</h6>
+          <p class="mb-0 text-muted">You feel nervous during interviews or presentations.</p>
+        </div>
+
+        <div class="card p-3 mb-3 shadow-sm border-0">
+          <h6>📉 Poor Vocabulary & Grammar</h6>
+          <p class="mb-0 text-muted">Struggling to form correct sentences.</p>
+        </div>
+
+        <div class="card p-3 shadow-sm border-0">
+          <h6>🚫 No Practice Environment</h6>
+          <p class="mb-0 text-muted">No one to practice speaking regularly.</p>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div class="col-md-6">
+        <h4 class="text-success mb-4">✅ Our Solutions</h4>
+
+        <div class="card p-3 mb-3 shadow-sm border-0">
+          <h6>🎤 Daily Speaking Practice</h6>
+          <p class="mb-0 text-muted">Interactive sessions to improve fluency.</p>
+        </div>
+
+        <div class="card p-3 mb-3 shadow-sm border-0">
+          <h6>💪 Confidence Building Activities</h6>
+          <p class="mb-0 text-muted">Real-time speaking & presentation training.</p>
+        </div>
+
+        <div class="card p-3 mb-3 shadow-sm border-0">
+          <h6>📚 Practical Grammar Training</h6>
+          <p class="mb-0 text-muted">Learn grammar with real-life examples.</p>
+        </div>
+
+        <div class="card p-3 shadow-sm border-0">
+          <h6>👨‍🏫 Live Mentorship Support</h6>
+          <p class="mb-0 text-muted">Guidance from expert trainers.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn btn-primary btn-lg px-4">
+        Start Your Transformation Today 🚀
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Courses -->
+<section id="courses" class="section bg-light">
+  <div class="container text-center">
+    <h2>Our Courses</h2>
+    <div class="row mt-4">
+
+      <div class="col-md-4">
+        <div class="card p-3">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" class="card-img-top">
+          <h5>Spoken English</h5>
+          <p>Improve fluency & confidence</p>
+          <a href="#contact" class="btn btn-primary">Enroll</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-3 border-primary">
+          <h6 class="text-primary">Most Popular</h6>
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df" class="card-img-top">
+          <h5>Interview Skills</h5>
+          <p>Crack job interviews easily</p>
+          <a href="#contact" class="btn btn-primary">Enroll</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-3">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" class="card-img-top">
+          <h5>Public Speaking</h5>
+          <p>Speak confidently on stage</p>
+          <a href="#contact" class="btn btn-primary">Enroll</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Trainers Section -->
+<section id="trainer" class="section bg-light">
+  <div class="container text-center">
+
+    <h2 class="fw-bold mb-4">Meet Our Expert Trainers</h2>
+
+    <!-- Main Trainer -->
+    <div class="mb-5">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+           class="rounded-circle shadow" width="150">
+      <h4 class="mt-3">Rahul Sharma</h4>
+      <p class="text-muted">
+        Lead Trainer | 5+ Years Experience <br>
+        Trained 1000+ students in communication & interview skills
+      </p>
+    </div>
+
+    <!-- Other Trainers -->
+<div class="row g-4 justify-content-center">
+
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card border-0 shadow-sm p-3 text-center h-100">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+           class="rounded-circle mx-auto" width="80">
+      <h6 class="mt-2 mb-0 fw-bold">Anjali Verma</h6>
+      <small class="text-primary">Spoken English Trainer</small>
+      <p class="text-muted mb-0 small">3+ Years Experience</p>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card border-0 shadow-sm p-3 text-center h-100">
+      <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+           class="rounded-circle mx-auto" width="80">
+      <h6 class="mt-2 mb-0 fw-bold">Ravi Kumar</h6>
+      <small class="text-primary">Interview Skills Coach</small>
+      <p class="text-muted mb-0 small">4+ Years Experience</p>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card border-0 shadow-sm p-3 text-center h-100">
+      <img src="https://randomuser.me/api/portraits/women/46.jpg" 
+           class="rounded-circle mx-auto" width="80">
+      <h6 class="mt-2 mb-0 fw-bold">Sneha Reddy</h6>
+      <small class="text-primary">Personality Development</small>
+      <p class="text-muted mb-0 small">3+ Years Experience</p>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card border-0 shadow-sm p-3 text-center h-100">
+      <img src="https://randomuser.me/api/portraits/men/47.jpg" 
+           class="rounded-circle mx-auto" width="80">
+      <h6 class="mt-2 mb-0 fw-bold">Kiran Patel</h6>
+      <small class="text-primary">Public Speaking Expert</small>
+      <p class="text-muted mb-0 small">5+ Years Experience</p>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-2">
+    <div class="card border-0 shadow-sm p-3 text-center h-100">
+      <img src="https://randomuser.me/api/portraits/women/48.jpg" 
+           class="rounded-circle mx-auto" width="80">
+      <h6 class="mt-2 mb-0 fw-bold">Meena Sharma</h6>
+      <small class="text-primary">Soft Skills Trainer</small>
+      <p class="text-muted mb-0 small">4+ Years Experience</p>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Testimonials -->
+<!-- Reviews Section -->
+ <section id="Reviews" class="section"></section>
+<section class="section bg-light">
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Student Reviews</h2>
+      <p class="text-muted">Real feedback from our students</p>
+    </div>
+
+    <!-- Reviews Container -->
+    <div class="row g-4" id="reviewContainer">
+
+      <!-- Default Review -->
+      <!-- Reviews Container -->
+<div class="row g-4" id="reviewContainer">
+
+  <!-- Review 1 -->
+  <div class="col-md-4">
+    <div class="card p-4 shadow-sm border-0 h-100">
+      <div class="text-warning mb-2">★★★★★</div>
+      <p>"This course completely changed my confidence. I can now speak English fluently!"</p>
+      <h6 class="fw-bold">Rahul Kumar</h6>
+      <small class="text-muted">Student</small>
+    </div>
+  </div>
+
+  <!-- Review 2 -->
+  <div class="col-md-4">
+    <div class="card p-4 shadow-sm border-0 h-100">
+      <div class="text-warning mb-2">★★★★★</div>
+      <p>"Amazing trainers! The daily speaking practice helped me overcome my fear."</p>
+      <h6 class="fw-bold">Sneha Reddy</h6>
+      <small class="text-muted">Student</small>
+    </div>
+  </div>
+
+  <!-- Review 3 -->
+  <div class="col-md-4">
+    <div class="card p-4 shadow-sm border-0 h-100">
+      <div class="text-warning mb-2">★★★★☆</div>
+      <p>"I cracked my interview after this course. Highly recommended for job seekers."</p>
+      <h6 class="fw-bold">Kiran Patel</h6>
+      <small class="text-muted">Student</small>
+    </div>
+  </div>
+
+</div>
+
+    <!-- Write Review -->
+    <div class="mt-5">
+      <h4 class="text-center mb-4">Write a Review</h4>
+
+      <form id="reviewForm" class="row g-3 justify-content-center">
+
+        <div class="col-md-4">
+          <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+        </div>
+
+        <div class="col-md-4">
+          <select id="rating" class="form-select" required>
+            <option value="">Select Rating</option>
+            <option value="★★★★★">★★★★★</option>
+            <option value="★★★★☆">★★★★☆</option>
+            <option value="★★★☆☆">★★★☆☆</option>
+          </select>
+        </div>
+
+        <div class="col-md-8">
+          <textarea id="review" class="form-control" placeholder="Write your review" required></textarea>
+        </div>
+
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- Pricing -->
+<!-- Pricing Section -->
+<section class="section">
+  <div class="container text-center">
+
+    <h2 class="fw-bold mb-5">Choose Your Plan</h2>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Basic -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm border-0 h-100">
+          <h5>Basic</h5>
+          <h3 class="fw-bold my-3">₹999</h3>
+          <ul class="list-unstyled text-muted">
+            <li>✔ Basic Speaking Practice</li>
+            <li>✔ Grammar Basics</li>
+            <li>❌ Mock Interviews</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-primary mt-3">Choose Plan</a>
+        </div>
+      </div>
+
+      <!-- Premium (Highlighted) -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-lg border-primary h-100">
+          <span class="badge bg-primary mb-2">Most Popular</span>
+          <h5>Premium</h5>
+          <h3 class="fw-bold my-3 text-primary">₹1999</h3>
+          <ul class="list-unstyled">
+            <li>✔ Daily Speaking Practice</li>
+            <li>✔ Interview Preparation</li>
+            <li>✔ Mock Interviews</li>
+            <li>✔ Trainer Support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary mt-3">Enroll Now</a>
+        </div>
+      </div>
+
+      <!-- Advanced -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm border-0 h-100">
+          <h5>Advanced</h5>
+          <h3 class="fw-bold my-3">₹2999</h3>
+          <ul class="list-unstyled text-muted">
+            <li>✔ Everything in Premium</li>
+            <li>✔ Personal Mentorship</li>
+            <li>✔ Placement Assistance</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-primary mt-3">Choose Plan</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT INFO -->
+<!-- Contact Section -->
+<section id="contact" class="contact-section py-5">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Contact Us</h2>
+      <p class="text-muted">Get in touch with us easily</p>
+    </div>
+
+    <div class="row justify-content-center">
+
+      <!-- CONTACT INFO CARD -->
+      <div class="col-md-6">
+        <div class="contact-card text-center">
+
+          <h4 class="mb-4">Get in Touch</h4>
+
+          <!-- Phone -->
+          <p class="contact-item justify-content-center">
+            <i class="bi bi-telephone-fill"></i> 
+            <a href="tel:+918999630240">+91 89996 30240</a>
+          </p>
+
+          <!-- Email -->
+          <p class="contact-item justify-content-center">
+            <i class="bi bi-envelope-fill"></i> 
+            <a href="mailto:successacademi@gmail.com">successacademi@gmail.com</a>
+          </p>
+
+          <!-- Location -->
+          <p class="contact-item justify-content-center">
+            <i class="bi bi-geo-alt-fill"></i> India
+          </p>
+
+          <hr>
+
+          <!-- Social -->
+          <!-- Social -->
+<h5>Follow Us</h5>
+
+<div class="social-icons justify-content-center">
+
+  <a href="#" target="_blank" class="social fb">
+    <i class="bi bi-facebook"></i>
+  </a>
+
+  <a href="#" target="_blank" class="social ig">
+    <i class="bi bi-instagram"></i>
+  </a>
+
+  <a href="#" target="_blank" class="social yt">
+    <i class="bi bi-youtube"></i>
+  </a>
+
+</div>
+
+
+          <hr>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/918999630240?text=Hello%20I%20want%20to%20enroll%20in%20your%20course"
+             class="btn btn-success w-100 mt-3">
+            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="section bg-light">
+  <div class="container">
+    
+    <h2 class="text-center fw-bold mb-5">FAQs</h2>
+
+    <div class="accordion" id="faq">
+
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">
+            Course Duration?
+          </button>
+        </h2>
+        <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+          <div class="accordion-body">30 Days intensive training program.</div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">
+            Online or Offline?
+          </button>
+        </h2>
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">Both options are available based on your preference.</div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">
+            Who can join this course?
+          </button>
+        </h2>
+        <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">Students, job seekers, and anyone who wants to improve communication skills.</div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q4">
+            Do you provide certificates?
+          </button>
+        </h2>
+        <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">Yes, we provide a certificate after successful course completion.</div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q5">
+            Will I get placement support?
+          </button>
+        </h2>
+        <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">Yes, we provide interview preparation and placement assistance.</div>
+        </div>
+      </div>
+
+      
+      <!-- FAQ 7 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q7">
+            Is prior English knowledge required?
+          </button>
+        </h2>
+        <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faq">
+          <div class="accordion-body">No, we start from basics and gradually improve your level.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ===== MODERN FOOTER ===== -->
+<footer class="footer pt-5">
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <!-- BRAND -->
+      <div class="col-md-4">
+        <img src="images/logo.png" alt="Logo" style="height:60px;">
+        <p class="mt-3 text-muted">
+          Helping students speak English confidently and succeed in interviews with practical training.
+        </p>
+
+        <!-- Social -->
+        <div class="social-icons mt-3">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- LINKS -->
+      <div class="col-md-2">
+        <h6 class="footer-title">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#trainer">Trainers</a></li>
+          <li><a href="#Reviews">Reviews</a></li>
+        </ul>
+      </div>
+
+      <!-- COURSES -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Courses</h6>
+        <ul class="footer-links">
+          <li><a href="#">Spoken English</a></li>
+          <li><a href="#">Interview Skills</a></li>
+          <li><a href="#">Public Speaking</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Contact</h6>
+
+        <p class="mb-1">
+          <i class="bi bi-telephone"></i> +91 89996 30240
+        </p>
+
+        <p class="mb-1">
+          <i class="bi bi-envelope"></i> successacademi@gmail.com
+        </p>
+
+        <p>
+          <i class="bi bi-geo-alt"></i> India
+        </p>
+
+        <!-- CTA -->
+        <a href="https://wa.me/918999630240" target="_blank" class="btn btn-success btn-sm mt-2">
+          <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- BOTTOM -->
+    <div class="text-center small text-muted">
+      © 2026 SpeakPro Institute. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/917075901216" class="whatsapp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =========================
+   REVIEW FORM (WORKING)
+========================= */
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("reviewForm");
+  const container = document.getElementById("reviewContainer");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const rating = document.getElementById("rating").value;
+    const review = document.getElementById("review").value.trim();
+
+    if (!name || !rating || !review) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    const div = document.createElement("div");
+    div.className = "col-md-4";
+
+    div.innerHTML = `
+      <div class="card p-4 shadow-sm border-0 h-100">
+        <div class="text-warning mb-2">${rating}</div>
+        <p>"${review}"</p>
+        <h6 class="fw-bold">${name}</h6>
+        <small class="text-muted">Student</small>
+      </div>
+    `;
+
+    container.prepend(div);
+
+    form.reset();
+  });
+
+});
+
+
+/* =========================
+   SIMPLE NAVBAR EFFECT
+========================= */
+window.addEventListener("scroll", function () {
+  let navbar = document.querySelector(".navbar");
+
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+document.querySelectorAll('.navbar .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    if (navbarCollapse.classList.contains('show')) {
+      new bootstrap.Collapse(navbarCollapse).hide();
+    }
+
+  });
+});
+document.querySelectorAll('.navbar a').forEach(link => {
+  link.addEventListener('click', () => {
+
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    if (navbarCollapse.classList.contains('show')) {
+      new bootstrap.Collapse(navbarCollapse).hide();
+    }
+
+  });
+});
+
+</script>
+</body>
+</html>
