@@ -176,7 +176,145 @@
   transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
 }
+/* ===== ABOUT MODERN ===== */
+.about-modern {
+  padding: 100px 0;
+  background: #fff;
+}
 
+.about-img-box {
+  position: relative;
+}
+
+.about-img-box img {
+  border-radius: 20px;
+  width: 100%;
+}
+
+/* ORANGE OVERLAY SHAPE */
+.about-img-box::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: #f36b2c;
+  top: -20px;
+  left: -20px;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+/* TEXT */
+.about-content h2 {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.about-content p {
+  color: #555;
+  margin: 15px 0;
+}
+
+/* POINTS */
+.about-points div {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+/* ===== WHY MODERN (TIMELINE) ===== */
+.why-modern {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f8faff, #eef2ff);
+}
+
+/* TIMELINE LINE */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: #f36b2c;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ITEMS */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+}
+
+/* LEFT */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+/* RIGHT */
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+/* CONTENT */
+.timeline-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+/* HIGHLIGHT */
+.timeline-content.highlight {
+  background: #f36b2c;
+  color: #fff;
+}
+
+/* DOT */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #f36b2c;
+  border-radius: 50%;
+  top: 25px;
+  right: -9px;
+}
+
+.timeline-item:nth-child(even)::after {
+  left: -9px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    text-align: left !important;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline-item::after {
+    left: 10px !important;
+  }
+
+}
 /* ===== CARDS ===== */
 .card {
   border: none;
@@ -662,6 +800,90 @@ footer .container {
   </div>
 </section>
 
+<!-- ===== ABOUT SECTION (MODERN PREMIUM) ===== -->
+<section class="about-modern">
+  <div class="container">
+
+    <div class="row align-items-center">
+
+      <!-- IMAGE -->
+      <div class="col-md-6">
+        <div class="about-img-box">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="col-md-6">
+        <div class="about-content">
+          <h2>About Success Academy</h2>
+          <p>
+            We help students and professionals master communication skills with real-world training.
+          </p>
+
+          <div class="about-points">
+            <div>✔ Practical Speaking Practice</div>
+            <div>✔ Confidence Building System</div>
+            <div>✔ Interview & Career Focus</div>
+          </div>
+
+          <a href="#contact" class="btn btn-primary mt-3">Start Learning</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== WHY CHOOSE US (TIMELINE STYLE) ===== -->
+<section class="why-modern">
+  <div class="container">
+
+    <h2 class="text-center mb-5">Why Choose Us</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Live Interactive Classes</h4>
+          <p>Real-time speaking sessions for practical learning.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content highlight">
+          <h4>Practical Training</h4>
+          <p>No theory — only real-world communication skills.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Affordable Fees</h4>
+          <p>High-quality training at student-friendly pricing.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content highlight">
+          <h4>Personal Feedback</h4>
+          <p>Individual attention for faster growth.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Flexible Timings</h4>
+          <p>Choose batches that suit your schedule.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <section class="py-5 bg-light trust-section">
   <div class="container">
 
@@ -1068,7 +1290,7 @@ footer .container {
           <!-- Email -->
           <p class="contact-item justify-content-center">
             <i class="bi bi-envelope-fill"></i> 
-            <a href="mailto:successacademi@gmail.com">successacademi@gmail.com</a>
+            <a href="mailto:successacademi@gmail.com">successacademy@gmail.com</a>
           </p>
 
           <!-- Location -->
